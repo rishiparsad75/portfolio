@@ -13,10 +13,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-    const pathname = usePathname();
+    const pathname = usePathname() || "";
     const { scrollYProgress } = useScroll();
-
-    if (pathname.startsWith("/studio")) return null;
 
     // Show navbar after 10% scroll on home page, always show on other pages
     const opacity = useTransform(
@@ -29,6 +27,8 @@ export default function Navbar() {
         [0, 0.08, 0.12],
         pathname === "/" ? [-40, -40, 0] : [0, 0, 0]
     );
+
+    if (pathname.startsWith("/studio")) return null;
 
     return (
         <motion.nav

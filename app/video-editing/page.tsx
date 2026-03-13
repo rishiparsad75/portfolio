@@ -193,10 +193,7 @@ export default function VideoEditingPage() {
     const filtered =
         activeCategory === "All"
             ? fetchedProjects
-            : fetchedProjects.filter((p: any) => p.category === activeCategory);
-
-    const accent = activeCategory === "All" ? "#7C3AED" : (categoryColor[activeCategory] ?? "#7C3AED");
-    const accentBg = activeCategory === "All" ? "rgba(124,58,237,0.15)" : (categoryAccent[activeCategory] ?? "rgba(124,58,237,0.15)");
+            : fetchedProjects.filter((p: typeof projects[0]) => p.category === activeCategory);
 
     return (
         <div className="min-h-screen bg-bg pt-24 pb-20">
@@ -257,7 +254,7 @@ export default function VideoEditingPage() {
                     layout
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                 >
-                    {filtered.map((project: any, i: number) => {
+                    {filtered.map((project: typeof projects[0], i: number) => {
                         const col = categoryColor[project.category] ?? "#7C3AED";
                         const bgCol = categoryAccent[project.category] ?? "rgba(124,58,237,0.15)";
                         const isLandscape = project.aspect === "landscape";

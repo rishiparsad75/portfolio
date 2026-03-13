@@ -72,6 +72,7 @@ export default function ScrollyCanvas() {
         if (isLoaded.current) {
             renderFrame(currentFrame.current);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
