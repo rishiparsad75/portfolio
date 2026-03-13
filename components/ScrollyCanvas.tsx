@@ -32,23 +32,36 @@ export default function ScrollyCanvas() {
     // ─── Preload all images with Image.decode() ─────────────────────────────────
     useEffect(() => {
         const preloadImages = async () => {
-            const promises: Promise<void>[] = [];
-
+            // Pre-initialize array to avoid out-of-bounds indexing errors
             for (let i = 0; i < FRAME_COUNT; i++) {
-                const img = new Image();
-                img.src = getFrameSrc(i);
-                promises.push(img.decode());
-                images.current.push(img);
+                images.current[i] = new Image(); 
             }
 
-            await Promise.all(promises);
-            isLoaded.current = true;
+            // Immediately load and decode ONLY the first frame
+            const firstImg = images.current[0];
+            firstImg.src = getFrameSrc(0);
+            
+            try {
+                await firstImg.decode();
+                isLoaded.current = true;
+                renderFrame(0);
+            } catch (err) {
+                console.error("Failed to load first frame", err);
+            }
 
-            // Render first frame immediately
-            renderFrame(0);
+            // Load the remaining 74 frames silently in the background
+            for (let i = 1; i < FRAME_COUNT; i++) {
+                const img = new Image();
+                img.src = getFrameSrc(i);
+                img.decode().then(() => {
+                    images.current[i] = img;
+                }).catch(() => {
+                    // Ignore background load errors
+                });
+            }
         };
 
-        preloadImages().catch(console.error);
+        preloadImages();
 
         return () => {
             if (rafId.current) cancelAnimationFrame(rafId.current);
