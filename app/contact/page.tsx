@@ -41,11 +41,13 @@ export default function ContactPage() {
         setStatus("sending");
 
         try {
-            // Formspree endpoint — replace YOUR_FORM_ID with actual Formspree form ID
-            const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+            const res = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 headers: { "Content-Type": "application/json", Accept: "application/json" },
-                body: JSON.stringify(form),
+                body: JSON.stringify({
+                    access_key: "8357d6d8-f842-447e-aebc-0d0912815a44",
+                    ...form
+                }),
             });
 
             if (res.ok) {
