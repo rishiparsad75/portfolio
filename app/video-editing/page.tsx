@@ -168,6 +168,33 @@ const projects = [
         description: "High-quality landscape production showing versatility in video formats.",
         aspect: "landscape"
     },
+    {
+        id: 21,
+        title: "ॐ नमः शिवाय",
+        category: "Random Stuff",
+        thumbnail: "https://img.youtube.com/vi/KxO_GLg0Ld4/maxresdefault.jpg",
+        videoId: "KxO_GLg0Ld4",
+        description: "A cinematic landscape video edit.",
+        aspect: "landscape"
+    },
+    {
+        id: 22,
+        title: "Comp 1 7",
+        category: "Random Stuff",
+        thumbnail: "https://img.youtube.com/vi/O18VQ_SMG_U/maxresdefault.jpg",
+        videoId: "O18VQ_SMG_U",
+        description: "A high-quality landscape composition.",
+        aspect: "landscape"
+    },
+    {
+        id: 23,
+        title: "testreel",
+        category: "Random Stuff",
+        thumbnail: "https://img.youtube.com/vi/U6srZ8QP-Fs/maxresdefault.jpg",
+        videoId: "U6srZ8QP-Fs",
+        description: "A creative vertical short.",
+        aspect: "portrait"
+    },
 ];
 
 // Accent colours per category
