@@ -179,6 +179,51 @@
       "videoId": "U6srZ8QP-Fs",
       "description": "A creative vertical short.",
       "aspect": "portrait"
+    },
+    {
+      "id": 24,
+      "title": "Creative Visual Transition",
+      "category": "Random Stuff",
+      "thumbnail": "https://img.youtube.com/vi/csn1exsrmAs/maxresdefault.jpg",
+      "videoId": "csn1exsrmAs",
+      "description": "A seamless vertical transition showcase featuring advanced editing techniques.",
+      "aspect": "portrait"
+    },
+    {
+      "id": 25,
+      "title": "High-Energy Social Reel",
+      "category": "Random Stuff",
+      "thumbnail": "https://img.youtube.com/vi/8FL06UnpxHo/maxresdefault.jpg",
+      "videoId": "8FL06UnpxHo",
+      "description": "High-energy vertical short designed for maximum social engagement.",
+      "aspect": "portrait"
+    },
+    {
+      "id": 26,
+      "title": "Cinematic Storytelling Short",
+      "category": "Random Stuff",
+      "thumbnail": "https://img.youtube.com/vi/j3PDnlOgu7c/maxresdefault.jpg",
+      "videoId": "j3PDnlOgu7c",
+      "description": "Color graded cinematic sequence focusing on visual storytelling.",
+      "aspect": "portrait"
+    },
+    {
+      "id": 27,
+      "title": "Fast-Cut Motion Reel",
+      "category": "Random Stuff",
+      "thumbnail": "https://img.youtube.com/vi/0YaDLHdZrkU/maxresdefault.jpg",
+      "videoId": "0YaDLHdZrkU",
+      "description": "Fast-cut vertical sequence with quick pacing and creative visual effects.",
+      "aspect": "portrait"
+    },
+    {
+      "id": 28,
+      "title": "Premium Motion Graphic Edit",
+      "category": "Motion Graphics",
+      "thumbnail": "https://img.youtube.com/vi/Jzqe-xVm34k/maxresdefault.jpg",
+      "videoId": "Jzqe-xVm34k",
+      "description": "Premium motion graphic design showcasing advanced typography and animations.",
+      "aspect": "landscape"
     }
   ],
   "graphics": [

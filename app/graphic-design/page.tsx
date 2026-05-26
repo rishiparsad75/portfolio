@@ -4,80 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ImageModal from "@/components/ImageModal";
+import projectsData from "../../data/projects.json";
 
-
-const projects = [
-    {
-        id: 1,
-        title: "Marketing Agency Concept",
-        category: "Social Media",
-        image: "/assets/graphic-design/MAIN.jpg",
-        aspect: "portrait",
-    },
-    {
-        id: 2,
-        title: "Digital Agency Showcase",
-        category: "Branding",
-        image: "/assets/graphic-design/MAIN 02.jpg",
-        aspect: "portrait",
-    },
-    {
-        id: 3,
-        title: "SGI Brand Identity",
-        category: "Branding",
-        image: "/assets/graphic-design/SGI main.jpg",
-        aspect: "landscape",
-    },
-    {
-        id: 4,
-        title: "Social Media Campaign",
-        category: "Social Media",
-        image: "/assets/graphic-design/SGI 01.jpg",
-        aspect: "square",
-    },
-    {
-        id: 5,
-        title: "Brand Visuals Pack",
-        category: "Social Media",
-        image: "/assets/graphic-design/SGI 02.jpg",
-        aspect: "square",
-    },
-    {
-        id: 6,
-        title: "Content Strategy Design",
-        category: "Social Media",
-        image: "/assets/graphic-design/SGI 03.jpg",
-        aspect: "portrait",
-    },
-    {
-        id: 7,
-        title: "Creative Post Series",
-        category: "Social Media",
-        image: "/assets/graphic-design/SGI 04.jpg",
-        aspect: "portrait",
-    },
-    {
-        id: 8,
-        title: "Brand Moodboard",
-        category: "Branding",
-        image: "/assets/graphic-design/SGI Mood.jpg",
-        aspect: "landscape",
-    },
-    {
-        id: 9,
-        title: "Twitter/X Header Banner",
-        category: "Branding",
-        image: "/assets/graphic-design/SGI Banner.jpg",
-        aspect: "landscape",
-    },
-    {
-        id: 10,
-        title: "Brand Stationary Design",
-        category: "Branding",
-        image: "/assets/graphic-design/SGI Back.jpg",
-        aspect: "landscape",
-    },
-];
+const projects = projectsData.graphics;
 
 const aspectMap: Record<string, string> = {
     portrait: "aspect-[3/4]",
