@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ImageModal from "@/components/ImageModal";
@@ -86,25 +86,8 @@ const aspectMap: Record<string, string> = {
 };
 
 export default function GraphicDesignPage() {
-    const [fetchedProjects, setFetchedProjects] = useState(projects);
     const [modal, setModal] = useState<{ src: string; title: string } | null>(null);
 
-    useEffect(() => {
-        const loadProjects = async () => {
-            try {
-                const res = await fetch("/api/projects");
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data.graphics && Array.isArray(data.graphics) && data.graphics.length > 0) {
-                        setFetchedProjects(data.graphics);
-                    }
-                }
-            } catch (e) {
-                console.error("Failed to load live graphic designs database:", e);
-            }
-        };
-        loadProjects();
-    }, []);
 
     return (
         <div className="min-h-screen bg-bg pt-24 pb-20">
@@ -139,7 +122,7 @@ export default function GraphicDesignPage() {
 
                 {/* Pinterest-style Masonry Grid */}
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-                    {fetchedProjects.map((project, i) => (
+                    {projects.map((project, i) => (
                         <motion.div
                             key={project.id}
                             initial={{ opacity: 0, scale: 0.95 }}

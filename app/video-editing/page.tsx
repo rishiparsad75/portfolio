@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import VideoModal from "@/components/VideoModal";
@@ -213,31 +213,14 @@ const categoryColor: Record<string, string> = {
 };
 
 export default function VideoEditingPage() {
-    const [fetchedProjects, setFetchedProjects] = useState(projects);
     const [activeCategory, setActiveCategory] = useState("All");
     const [modal, setModal] = useState<{ videoId: string; title: string } | null>(null);
 
-    useEffect(() => {
-        const loadProjects = async () => {
-            try {
-                const res = await fetch("/api/projects");
-                if (res.ok) {
-                    const data = await res.json();
-                    if (data.videos && Array.isArray(data.videos) && data.videos.length > 0) {
-                        setFetchedProjects(data.videos);
-                    }
-                }
-            } catch (e) {
-                console.error("Failed to load live video database:", e);
-            }
-        };
-        loadProjects();
-    }, []);
 
     const filtered =
         activeCategory === "All"
-            ? fetchedProjects
-            : fetchedProjects.filter((p) => p.category === activeCategory);
+            ? projects
+            : projects.filter((p) => p.category === activeCategory);
 
     return (
         <div className="min-h-screen bg-bg pt-24 pb-20">
