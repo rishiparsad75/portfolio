@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const navLinks = [
     { label: "Home", href: "/" },
@@ -14,25 +14,11 @@ const navLinks = [
 
 export default function Navbar() {
     const pathname = usePathname() || "";
-    const { scrollYProgress } = useScroll();
-
-    // Show navbar after 10% scroll on home page, always show on other pages
-    const opacity = useTransform(
-        scrollYProgress,
-        [0, 0.08, 0.12],
-        pathname === "/" ? [0, 0, 1] : [1, 1, 1]
-    );
-    const y = useTransform(
-        scrollYProgress,
-        [0, 0.08, 0.12],
-        pathname === "/" ? [-40, -40, 0] : [0, 0, 0]
-    );
 
     if (pathname.startsWith("/studio")) return null;
 
     return (
         <motion.nav
-            style={{ opacity, y }}
             className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
         >
             <div className="max-w-7xl mx-auto flex items-center justify-between">
